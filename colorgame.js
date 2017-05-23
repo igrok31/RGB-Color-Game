@@ -8,6 +8,7 @@ var messageDisplay = document.querySelector( "#message" );
 var h1 = document.querySelector( "h1" );
 var resetButton = document.querySelector( "#reset" );
 var modeButtons = document.querySelectorAll( ".mode" );
+
 init();
 
 function init() {
@@ -28,6 +29,7 @@ function setupModeButtons() {
 }
 
 function setupSquares() {
+    reset();
     for ( var i = 0; i < squares.length; i++ ) {
         // add initial colors to squares
         squares[ i ].style.backgroundColor = colors[ i ];
@@ -38,12 +40,14 @@ function setupSquares() {
             //compare color to pickedColor
             if ( clickedColor === pickedColor ) {
                 messageDisplay.textContent = "Correct!";
+                messageDisplay.style.backgroundColor = "#00e600";
                 resetButton.textContent = "Play Again?";
                 changeColors( clickedColor );
                 h1.style.backgroundColor = clickedColor;
             } else {
                 this.style.backgroundColor = "#232323";
                 messageDisplay.textContent = "Try Again";
+                messageDisplay.style.backgroundColor = "#e60000";
             }
         } );
     }
