@@ -1,13 +1,13 @@
-var numSquares = 6;
-var colors = [];
-var pickedColor;
-var squares = document.querySelectorAll( ".square" );
-var pickedColor = pickColor();
-var colorDisplay = document.getElementById( "colorDisplay" );
-var messageDisplay = document.querySelector( "#message" );
-var h1 = document.querySelector( "h1" );
-var resetButton = document.querySelector( "#reset" );
-var modeButtons = document.querySelectorAll( ".mode" );
+const numSquares = 6;
+const colors = [];
+const pickedColor;
+const squares = document.querySelectorAll( ".square" );
+const pickedColor = pickColor();
+const colorDisplay = document.getElementById( "colorDisplay" );
+const messageDisplay = document.querySelector( "#message" );
+const h1 = document.querySelector( "h1" );
+const resetButton = document.querySelector( "#reset" );
+const modeButtons = document.querySelectorAll( ".mode" );
 
 init();
 
@@ -18,7 +18,7 @@ function init() {
 
 function setupModeButtons() {
     for ( var i = 0; i < modeButtons.length; i++ ) {
-        modeButtons[ i ].addEventListener( "click", function() {
+        modeButtons[ i ].addEventListener( "click", () => {
             modeButtons[ 0 ].classList.remove( "selected" );
             modeButtons[ 1 ].classList.remove( "selected" );
             this.classList.add( "selected" );
@@ -34,7 +34,7 @@ function setupSquares() {
         // add initial colors to squares
         squares[ i ].style.backgroundColor = colors[ i ];
         //add click listeners to squares
-        squares[ i ].addEventListener( "click", function() {
+        squares[ i ].addEventListener( "click", () => {
             //grab color of clicked squares
             var clickedColor = this.style.backgroundColor;
             //compare color to pickedColor
@@ -72,7 +72,7 @@ function reset() {
     }
     h1.style.backgroundColor = "steelblue";
 }
-resetButton.addEventListener( "click", function() {
+resetButton.addEventListener( "click", () => {
     reset();
 } );
 
@@ -105,5 +105,5 @@ function randomColor() {
     var r = Math.floor( Math.random() * 256 );
     var g = Math.floor( Math.random() * 256 );
     var b = Math.floor( Math.random() * 256 );
-    return "rgb(" + r + ", " + g + ", " + b + ")";
+    return `rgb(${r}, ${g}, ${b})`;
 }
